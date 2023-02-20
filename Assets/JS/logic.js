@@ -6,11 +6,13 @@ const feedback = document.querySelector('#feedback')
 const correctSound = new Audio('./Assets/sfx/correct.wav')
 const incorrectSound = new Audio('./Assets/sfx/incorrect.wav')
 
-let questionindex = 0;
-let Title = questions[questionindex].title;
-let choices = questions[questionindex].choices;
-let answer = questions[questionindex].answer;
-let button  = document.querySelector('button')
+let currentQuestionindex = 0;
+let currentQuestion = questions[currentQuestionindex]
+let Title = currentQuestion.title;
+let choices = currentQuestion.choices;
+let answer = currentQuestion.answer;
+let button = document.querySelector('button')
+let timeleft = 60;
 
 
 
@@ -18,7 +20,7 @@ let button  = document.querySelector('button')
 function countdown() {
 
     let time = document.getElementById('time');
-    let timeleft = 60;
+
 
     time.innerText = timeleft;
     var timeInterval = setInterval(() => {
@@ -29,10 +31,9 @@ function countdown() {
 
 
 function questionShow() {
-    
+
     var questionHeader = document.createElement('h3')
     var questionText = document.createTextNode(Title)
-
     questionHeader.appendChild(questionText)
     document.body.append(questionHeader)
 
@@ -41,6 +42,16 @@ function questionShow() {
         var optionText = document.createTextNode(choices[i])
         options.appendChild(optionText)
         document.body.appendChild(options)
+
+        options.addEventListener('click', (event) => {
+            if (event.target.innerText === answer) {
+                correctSound.play()
+            } 
+            else {
+                incorrectSound.play(),
+                timeleft -= 10
+            }            
+        })
     }
 }
 
@@ -49,31 +60,11 @@ function endScreen() {
     endScrn.classList.remove('hide')
 }
 
-function correctAnswer() {
-    
-    choices.addEventListener('click', (event) => { 
-        console.log(event.target.innerText)       
-        if (text == answer) {
-            correctSound.play()
-
-        } else {
-            incorrectSound.play(),
-                timeleft -= 10;
-        }
-
-        if (questionindex < questions.length) {
-            questionindex++
-        } else {
-            endScreen()
-        }
-    })
-}
 
 
 
 
 function init() {
-
 
     var startScreen = document.querySelector('.start')
     questionDisplay.classList.remove('hide');
@@ -81,7 +72,7 @@ function init() {
 
     countdown();
     questionShow();
-    correctAnswer()
+
 
 }
 
