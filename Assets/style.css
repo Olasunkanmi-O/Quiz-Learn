@@ -39,7 +39,7 @@ button:hover {
 }
 
 .choices button {
-    display: inline;
+    display: block;
 }
 
 input[type="text"] {

@@ -6,15 +6,22 @@ const feedback = document.querySelector('#feedback')
 const correctSound = new Audio('./Assets/sfx/correct.wav')
 const incorrectSound = new Audio('./Assets/sfx/incorrect.wav')
 
-let currentQuestionindex = 0;
+let currentQuestionindex = 5;
 let currentQuestion = questions[currentQuestionindex]
-let Title = currentQuestion.title;
-let choices = currentQuestion.choices;
-let answer = currentQuestion.answer;
+let Title = questions[currentQuestionindex].title;
+let choices = questions[currentQuestionindex].choices;
+let answer = questions[currentQuestionindex].answer;
 let button = document.querySelector('button')
 let timeleft = 60;
 
+let questionEl = document.createElement('h3')
+let textEl = document.createTextNode(Title)
+questionEl.appendChild(textEl)
 
+
+console.log(Title)
+console.log(choices)
+console.log(answer)
 
 
 function countdown() {
@@ -32,36 +39,53 @@ function countdown() {
 
 function questionShow() {
 
-    var questionHeader = document.createElement('h3')
-    var questionText = document.createTextNode(Title)
-    questionHeader.appendChild(questionText)
-    document.body.append(questionHeader)
+    document.body.append(questionEl)    
+}
 
-    for (let i = 0; i < choices.length; i++) {
-        let options = document.createElement('button')
-        var optionText = document.createTextNode(choices[i])
-        options.appendChild(optionText)
-        document.body.appendChild(options)
 
-        options.addEventListener('click', (event) => {
-            if (event.target.innerText === answer) {
+function answerCheck(event) {
+
+    questionShow()
+    
+    for (i=0; i< choices.length; i++) {
+        let buttonEl = document.createElement('button')        
+        let buttonText = document.createTextNode(choices[i])    
+        buttonEl.appendChild(buttonText)
+        document.body.append(buttonEl)
+        buttonEl.setAttribute('class','choices')
+        buttonEl.addEventListener('click', (event)=>{
+            let userChoice = event.target.innerText
+            
+            if(userChoice !== answer){
+                incorrectSound.play()
+                timeleft -= 15
+                            
+
+            }else{
                 correctSound.play()
-            } 
-            else {
-                incorrectSound.play(),
-                timeleft -= 10
-            }            
+            }              
+            
+            currentQuestionindex++
+            if(timeleft <= 0 || currentQuestionindex === questions.length){
+                endScreen()
+            }else{
+                questionShow()
+            }
+
         })
-    }
+
+    }   
+
+    
+       
+    
 }
 
-function endScreen() {
-    var endScrn = document.querySelector('#end-screen')
-    endScrn.classList.remove('hide')
-}
 
-
-
+// function endScreen() {
+//     var endScrn = document.querySelector('#end-screen')
+//     endScrn.classList.remove('hide')
+// }
 
 
 function init() {
@@ -70,14 +94,22 @@ function init() {
     questionDisplay.classList.remove('hide');
     startScreen.classList.add('hide');
 
-    countdown();
-    questionShow();
-
-
+    questionShow()
 }
 
 var startBtn = document.getElementById('start');
 startBtn.addEventListener('click', init)
+
+
+init()
+
+
+
+
+
+
+
+
 
 
 
