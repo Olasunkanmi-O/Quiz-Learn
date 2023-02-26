@@ -10,6 +10,9 @@ const correctSound = new Audio('./Assets/sfx/correct.wav')
 const incorrectSound = new Audio('./Assets/sfx/incorrect.wav')
 const endScrn = document.getElementById('end-screen')
 const finalScore = document.getElementById('final-score')
+const initials = document.getElementById('initials')
+const highscore = document.getElementById('highscore')
+const submitBtn = document.getElementById('submit')
 
 const time = document.getElementById('time');
 let timeleft
@@ -19,7 +22,7 @@ let timeInterval
 function countDown() {
     timeleft = 100
     time.innerText = timeleft
-     timeInterval = setInterval(() => {
+    timeInterval = setInterval(() => {
         timeleft--
         time.innerText = timeleft
         if (timeleft <= 0) {
@@ -66,7 +69,6 @@ function optionDisplay() {
             `<button class="choiceOption">${questions[i].choices[j]}</button>`
         );
 
-        
     }
 
     choicesEl.classList.remove('hide')
@@ -85,30 +87,42 @@ function answerCheck() {
         }
         console.log(i)
         if (event.target.matches('.choiceOption')) {
-            
+
             getQuestions.innerHTML = '';
             choicesEl.innerHTML = '';
-            if(i< questions.length-1){
+            if (i < questions.length - 1) {
                 i++
-                questionDisplay();           
+                questionDisplay();
                 optionDisplay()
-            }else{
-
+            } else {
                 endScreen()
             }
-          
         }
-
-
     })
 }
+
+function storeScores() {
+    let Userinitials = initials.value
+    let Userscore = finalScore.innerText
+    let userObj = { initials: Userinitials, score: Userscore }
+    if (localStorage.getItem('scoreBoard') === null) {
+        localStorage['scoreBoard']=JSON.stringify(userObj)
+    } else {
+        let existedData = localStorage.getItem('scoreBoard')
+        existedData.push(userObj)        
+    }
+}
+
+submitBtn.addEventListener('click', () => {
+    storeScores()
+})
+
 
 
 
 function init() {
     starter()
     answerCheck()
-    
-
 }
+
 init()
