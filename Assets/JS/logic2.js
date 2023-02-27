@@ -85,7 +85,7 @@ function answerCheck() {
         } else {
             correctSound.play()
         }
-        console.log(i)
+        
         if (event.target.matches('.choiceOption')) {
 
             getQuestions.innerHTML = '';
@@ -104,17 +104,26 @@ function answerCheck() {
 function storeScores() {
     let Userinitials = initials.value
     let Userscore = finalScore.innerText
-    let userObj = { initials: Userinitials, score: Userscore }
+    let userObj = [{initials: Userinitials, score: Userscore }]
     if (localStorage.getItem('scoreBoard') === null) {
         localStorage['scoreBoard']=JSON.stringify(userObj)
     } else {
         let existedData = localStorage.getItem('scoreBoard')
-        existedData.push(userObj)        
+        userArr = [existedData]
+        userArr.push(userObj)
+        localStorage['scoreBoard']=JSON.stringify(userArr)
     }
+}
+
+function displayScore(){
+    let UserHighscore = JSON.parse(localStorage.getItem('scoreBoard'))
+    endScrn.setAttribute('class', 'hide')
+    document.body.append(UserHighscore)
 }
 
 submitBtn.addEventListener('click', () => {
     storeScores()
+    displayScore()
 })
 
 
