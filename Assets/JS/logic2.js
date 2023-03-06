@@ -1,4 +1,4 @@
-
+import displayScore from './highscore'
 
 let i = 0
 const start = document.getElementById('start')
@@ -104,22 +104,19 @@ function answerCheck() {
 function storeScores() {
     let Userinitials = initials.value
     let Userscore = finalScore.innerText
-    let userObj = [{initials: Userinitials, score: Userscore }]
-    if (localStorage.getItem('scoreBoard') === null) {
-        localStorage['scoreBoard']=JSON.stringify(userObj)
-    } else {
-        let existedData = localStorage.getItem('scoreBoard')
-        userArr = [existedData]
-        userArr.push(userObj)
-        localStorage['scoreBoard']=JSON.stringify(userArr)
-    }
+    let userObj = {initials: Userinitials, score: Userscore }
+    
+    var storedScore = getScore()
+    storedScore.push(userObj)
+    localStorage.setItem('scoreBoard', JSON.stringify(storedScore))
+
 }
 
-function displayScore(){
-    let UserHighscore = JSON.parse(localStorage.getItem('scoreBoard'))
-    endScrn.setAttribute('class', 'hide')
-    document.body.append(UserHighscore)
+function getScore () {
+    return JSON.parse(localStorage.getItem('scoreBoard')) || []
 }
+
+
 
 submitBtn.addEventListener('click', () => {
     storeScores()
@@ -135,3 +132,12 @@ function init() {
 }
 
 init()
+
+
+
+
+
+
+
+
+
