@@ -5,10 +5,12 @@ const highscore = document.getElementById('highscore')
 const clearBtn = document.getElementById('clearBtn')
 const submitBtn = document.getElementById('submit')
 
+let html;
 
 function displayScore(){
     // get the scorebord from local storage
     let UserHighscore = JSON.parse(localStorage.getItem('scoreBoard'))
+    // sets the content to empty value 
     let html='';
 
     if(!UserHighscore){
@@ -27,7 +29,8 @@ displayScore()
 
 // add event listener to clear button
 
-clearBtn.addEventListener(()=>{
-    localStorage.clear()
+clearBtn.addEventListener('click',()=>{
+    localStorage.removeItem('scoreBoard')
+    displayScore()
 })
 

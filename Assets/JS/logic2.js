@@ -116,7 +116,7 @@ function answerCheck() {
         }
     })
 }
-
+// function to store scores into the local storage
 function storeScores() {
     let Userinitials = initials.value
     let Userscore = finalScore.innerText
