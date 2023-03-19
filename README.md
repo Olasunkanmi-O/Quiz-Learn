@@ -29,7 +29,7 @@ Each question comes with multiple choice options which you are allowed to click 
 if you chhose a wrong answer, 10 secs is deducted from your time and it displays the next question, however, if you choose a right answer, it also moves to the next question but you time countsdown normally
 
 <div>
-    <img src="">
+    <img src="Assets\Images\question.jpg">
 </div>
 
 At the end of the last question or at the end of the count down, whichever comes first, the remaining time is stored as your high score which you can view from the link on the left hand corner of the screen.
