@@ -14,7 +14,7 @@ Some challenges faced while building this project wass time constraints as i had
 
 ## Installation 
 <ol>
-    <li>clone the repository using git clone</li>
+    <li>Clone the repository using git clone</li>
     <li>Open index.html file in your browser</li>
 </ol>
 
@@ -22,14 +22,14 @@ Some challenges faced while building this project wass time constraints as i had
 The application runs in browser and it dynamically displays the questions. At the landing page, there is a start button which initiates the first question, here you will notice the time is zero, the time countdown starts as soon as the start button is clicked.
 
 <div>
-    <img src="./Images/start.jpg">
+    <img src="Assets\Images\start.jpg">    
 </div>
 
 Each question comes with multiple choice options which you are allowed to click to make a choice, depending of your choice, a sound is played to notify you of right or wrong answer choice.
 if you chhose a wrong answer, 10 secs is deducted from your time and it displays the next question, however, if you choose a right answer, it also moves to the next question but you time countsdown normally
 
 <div>
-    <img src="./Images/question.jpg">
+    <img src="">
 </div>
 
 At the end of the last question or at the end of the count down, whichever comes first, the remaining time is stored as your high score which you can view from the link on the left hand corner of the screen.
