@@ -22,7 +22,7 @@ let timeInterval
 
 function countDown() {
     // set time of the quiz
-    timeleft = 100 
+    timeleft = 60 
     time.innerText = timeleft
     timeInterval = setInterval(() => {
         // time countdown as soon as the quiz starts
