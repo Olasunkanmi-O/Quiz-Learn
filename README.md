@@ -54,7 +54,7 @@ The link to the deployed app is https://olasunkanmi-o.github.io/Quiz/
 
 ## Contact
 
-if you want to contact me on any questions or suggestions, please contact olasunkanmi.m.owolabi@gmail.com 
+If you want to contact me on any questions or suggestions, please contact olasunkanmi.m.owolabi@gmail.com 
 
 
 
