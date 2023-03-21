@@ -135,11 +135,18 @@ function getScore () {
     return JSON.parse(localStorage.getItem('scoreBoard')) || []
 }
 
+function confirmation() {
+    // to hide the end screen after submit button is clicked
+    endScreen.setAttribute('class', 'hide')
+    document.append('Your score is saved')
+}
+
 
 
 submitBtn.addEventListener('click', () => {
     // adding event listener on submit button to store the scores in the local storage
     storeScores()
+    confirmation() 
     
 })
 

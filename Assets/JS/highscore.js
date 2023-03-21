@@ -18,7 +18,7 @@ function displayScore(){
     }else{        
     
     UserHighscore.forEach(item=>{
-        html += `<li>Initial:${item.initials}, Score:${item.score}</li>`
+        html += `<li>${item.initials} - ${item.score}</li>`
     })}
 
     highscore.innerHTML=html
