@@ -6,11 +6,12 @@
 
 ## Description
 This app tests your knowledge of front-end development basics. 
-The purpose of this app is to create a quiz demo which helps you to test your knowledge on the fundamentals of front-end. It is currently limited to 6 questions with the capacity to add more as the occassion may demand. it features questions obasically on Javascript, HTML and CSS. 
+This app aims to create a quiz demo which helps you test your knowledge of the fundamentals of front-end development. It is currently limited to 6 questions and can add more as the occasion demands. it features questions basically on Javascript, HTML and CSS. 
 
-Javascript is the major language used here, although there are inclusions from HTML and CSS, the main reason behind Javascript usage here is to dynamicalluy display the questions based on user's prompts.  
+Javascript is the major language used here, and although there are inclusions from HTML and CSS, the main reason behind Javascript's usage here is to dynamically display the questions based on the user's prompts.  
 
-Some challenges faced while building this project wass time constraints as i had to get it done withjin a very short time while learning Javascript basics.
+Some challenges faced while building this project were time constraints as I had to get it done quickly while learning Javascript basics.
+
 
 ## Installation 
 <ol>
@@ -19,20 +20,21 @@ Some challenges faced while building this project wass time constraints as i had
 </ol>
 
 ## Usage
-The application runs in browser and it dynamically displays the questions. At the landing page, there is a start button which initiates the first question, here you will notice the time is zero, the time countdown starts as soon as the start button is clicked.
+The application runs in the browser and it dynamically displays the questions. On the landing page, there is a start button which initiates the first question, here you will notice the time is zero, and the time countdown starts as soon as the start button is clicked.
 
 <div>
     <img src="Assets\Images\start.jpg">    
 </div>
 
-Each question comes with multiple choice options which you are allowed to click to make a choice, depending of your choice, a sound is played to notify you of right or wrong answer choice.
-if you chhose a wrong answer, 10 secs is deducted from your time and it displays the next question, however, if you choose a right answer, it also moves to the next question but you time countsdown normally
+Each question comes with multiple choice options which you are allowed to click to make a choice, depending on your choice, a sound is played to notify you of the right or wrong answer choice.
+if you choose a wrong answer, 10 secs is deducted from your time and it displays the next question, however, if you choose the right answer, it also moves to the next question but your time counts down normally
+
 
 <div>
     <img src="Assets\Images\question.jpg">
 </div>
 
-At the end of the last question or at the end of the count down, whichever comes first, the remaining time is stored as your high score which you can view from the link on the left hand corner of the screen.
+At the end of the last question or the end of the countdown, whichever comes first, the remaining time is stored as your high score which you can view from the link on the left-hand corner of the screen.
 
 
 ## Contributing
