@@ -51,7 +51,7 @@ Contributions are welcome! Please follow these guidelines when submitting a pull
     <li>Submit a pull request.</li>
 </ol>
 
-The link to the deployed app is https://olasunkanmi-o.github.io/Quiz/
+The link to the deployed app is https://olasunkanmi-o.github.io/Quiz-Learn/ 
 
 
 ## Contact
